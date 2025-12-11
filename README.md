@@ -258,10 +258,10 @@ Authorization: Token <your-token-here>
 ## 🚀 Installation & Setup
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.10+
 - PostgreSQL 13+
 - Git
-- pip or Poetry
+- pip or pipenv
 
 ### Step 1: Clone Repository
 ```bash
@@ -477,49 +477,9 @@ DATABASE_URL=postgresql://user:password@prod-db:5432/yuga_prod
 
 ---
 
-## 🐛 Troubleshooting
+## 📚 API Documentation (To be available soon!)
 
-### Issue: "No such table" error
-**Solution:** Run migrations
-```bash
-python manage.py migrate
-```
-
-### Issue: Permission Denied when creating menu items
-**Solution:** Ensure user belongs to Manager group
-```bash
-python manage.py shell
-from django.contrib.auth.models import User, Group
-user = User.objects.get(username='your_user')
-manager = Group.objects.get(name='Manager')
-manager.user_set.add(user)
-```
-
-### Issue: CORS errors in frontend
-**Solution:** Add to `settings.py`:
-```python
-INSTALLED_APPS = [
-    'corsheaders',
-    ...
-]
-
-MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    ...
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8080",
-]
-```
-
----
-
-## 📚 API Documentation
-
-### OpenAPI/Swagger (Optional)
+### OpenAPI/Swagger
 To enable interactive API docs, install:
 ```bash
 pip install drf-spectacular
@@ -534,35 +494,9 @@ Access at: `http://localhost:8000/api/schema/swagger/`
 
 ---
 
-## 🤝 Contributing
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-### Code Standards
-- Follow PEP 8
-- Write docstrings for all functions
-- Add unit tests for new features
-- Run `black` for code formatting
-- Use meaningful commit messages
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👥 Support & Contact
-
-**Project Maintainer:** Your Organization  
-**Email:** support@yuga.restaurant  
-**Issues:** [GitHub Issues](https://github.com/your-org/yuga/issues)  
-**Discussions:** [GitHub Discussions](https://github.com/your-org/yuga/discussions)
 
 ---
 
@@ -602,4 +536,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Last Updated:** December 2025  
 **Version:** 1.0.0  
-**Status:** Production Ready
+**Status:** Dev Ready
